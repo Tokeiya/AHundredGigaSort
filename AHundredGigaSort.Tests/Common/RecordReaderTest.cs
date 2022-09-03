@@ -79,11 +79,6 @@ public class RecordReaderTest
 		{
 			var ret = target.Fill(record);
 
-			if (!ret)
-			{
-				Console.Write("hige");
-			}
-
 			ret.IsTrue();
 
 			RecordTest.Assert(record, Read(i));

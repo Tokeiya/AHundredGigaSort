@@ -1,5 +1,4 @@
 ﻿using System.Buffers;
-using System.Reflection.Metadata.Ecma335;
 using static AHundredGigaSort.Common.Record;
 
 namespace AHundredGigaSort.Common;
@@ -68,7 +67,7 @@ public class RecordReader : IDisposable
 
 		try
 		{
-			if(_stream.Read(buff, 0, TotalRecordSize) != TotalRecordSize) return null;
+			if (_stream.Read(buff, 0, TotalRecordSize) != TotalRecordSize) return null;
 			return new Record(buff);
 		}
 		finally

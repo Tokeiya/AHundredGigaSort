@@ -10,7 +10,7 @@ public class Record
 
 	public Record()
 	{
-		Id=0;
+		Id = 0;
 		Value = new byte[ValueSize];
 	}
 
