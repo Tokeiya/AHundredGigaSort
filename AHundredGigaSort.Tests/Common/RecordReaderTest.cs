@@ -77,8 +77,16 @@ public class RecordReaderTest
 
 		for (int i = 0; i < 100; i++)
 		{
-			target.Fill(record).IsTrue();
-			RecordTest.Assert(record, SampleReader.Read(i));
+			var ret = target.Fill(record);
+
+			if (!ret)
+			{
+				Console.Write("hige");
+			}
+
+			ret.IsTrue();
+
+			RecordTest.Assert(record, Read(i));
 		}
 
 		target.Fill(record).IsFalse();
@@ -95,7 +103,7 @@ public class RecordReaderTest
 		for (int i = 99; i >= 0; i--)
 		{
 			target.Fill(i, record);
-			RecordTest.Assert(record, SampleReader.Read(i));
+			RecordTest.Assert(record, Read(i));
 		}
 	}
 
@@ -107,8 +115,10 @@ public class RecordReaderTest
 
 		for (int i = 0; i < 100; i++)
 		{
-			RecordTest.Assert(target.Read(), Read(i));
+			RecordTest.Assert(target.Read()!, Read(i));
 		}
+
+		target.Read().IsNull();
 	}
 
 	[Fact]
@@ -118,8 +128,10 @@ public class RecordReaderTest
 
 		for (int i = 99; i >= 0; i--)
 		{
-			RecordTest.Assert(target.Read(i), Read(i));
+			RecordTest.Assert(target.Read(i)!, Read(i));
 		}
+
+		target.Read(100).IsNull();
 	}
 
 	[Fact]
@@ -130,7 +142,7 @@ public class RecordReaderTest
 		for (int i = 0; i < 100; i++)
 		{
 			target.Position.Is(i);
-			target.Read();
+			target.Read().IsNotNull();
 		}
 	}
 
@@ -140,7 +152,7 @@ public class RecordReaderTest
 		using var target = new RecordReader(SampleDataPath);
 
 		target.Position = 42;
-		RecordTest.Assert(target.Read(), Read(42));
+		RecordTest.Assert(target.Read()!, Read(42));
 	}
 
 	[Fact]
@@ -148,8 +160,38 @@ public class RecordReaderTest
 	{
 		using var target = new RecordReader(SampleDataPath);
 		target.Dispose();
+	
 
 		Xunit.Assert.Throws<ObjectDisposedException>(() => target.Read());
 	}
+	
+	[Fact]
+	public void SequentialReadIdTest()
+	{
+		using var target=new RecordReader(SampleDataPath);
+
+		for (int i = 0; i < 100; i++)
+		{
+			target.ReadId().Is(Read(i).Id);
+		}
+
+		target.ReadId().IsNull();
+
+	}
+
+	[Fact]
+	public void PositionReadIdTest()
+	{
+		using var target = new RecordReader(SampleDataPath);
+		
+		target.ReadId(42).Is(Read(42).Id);
+		
+		target.ReadId(100).IsNull();
+		
+	}
+
+
+
+
 
 }

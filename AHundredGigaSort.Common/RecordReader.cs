@@ -1,4 +1,6 @@
 ﻿using System.Buffers;
+using System.Reflection.Metadata.Ecma335;
+using static AHundredGigaSort.Common.Record;
 
 namespace AHundredGigaSort.Common;
 
@@ -8,57 +10,44 @@ public class RecordReader : IDisposable
 
 	public RecordReader(string path)
 	{
-		_stream = new FileStream(path, FileMode.Open);
-		RecordSize = (int)(_stream.Length / Record.TotalRecordSize);
+		_stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read, TotalRecordSize);
+		RecordSize = (int)(_stream.Length / TotalRecordSize);
 	}
 
 	public int RecordSize { get; }
 
 	public int Position
 	{
-		set
-		{
-			//TODO:Implement
-#warning NotImplemented
-			throw new NotImplementedException();
-		}
-		get
-		{
-			//TODO:Implement
-#warning NotImplemented
-			throw new NotImplementedException();
-		}
+		set => _stream.Position = value * TotalRecordSize;
+		get => (int)(_stream.Position / TotalRecordSize);
 	}
 
 	public void Dispose()
 	{
-		//TODO:Implement
-#warning NotImplemented
-		throw new NotImplementedException();
+		_stream.Dispose();
 	}
 
 	public bool Fill(Span<byte> buffer)
 	{
-		return _stream.Read(buffer) == Record.TotalRecordSize;
+		return _stream.Read(buffer) == TotalRecordSize;
 	}
 
 	public bool Fill(int position, Span<byte> buffer)
 	{
-		//TODO:Implement
-#warning NotImplemented
-		throw new NotImplementedException();
+		Position = position;
+		return Fill(buffer);
 	}
 
 	public bool Fill(Record record)
 	{
-		var buff = ArrayPool<byte>.Shared.Rent(Record.TotalRecordSize);
+		var buff = ArrayPool<byte>.Shared.Rent(TotalRecordSize);
 
 		try
 		{
-			if (_stream.Read(buff, 0, Record.TotalRecordSize) != Record.TotalRecordSize) return false;
+			if (_stream.Read(buff, 0, TotalRecordSize) != TotalRecordSize) return false;
 			record.Reload(buff);
 
-			return false;
+			return true;
 		}
 		finally
 		{
@@ -68,21 +57,19 @@ public class RecordReader : IDisposable
 
 	public bool Fill(int position, Record record)
 	{
-		//TODO:Implement
-#warning NotImplemented
-		throw new NotImplementedException();
+		Position = position;
+		return Fill(record);
 	}
 
 
-	public Record Read()
+	public Record? Read()
 	{
-		var buff = ArrayPool<byte>.Shared.Rent(Record.TotalRecordSize);
+		var buff = ArrayPool<byte>.Shared.Rent(TotalRecordSize);
 
 		try
 		{
-			//TODO:Implement
-#warning NotImplemented
-			throw new NotImplementedException();
+			if(_stream.Read(buff, 0, TotalRecordSize) != TotalRecordSize) return null;
+			return new Record(buff);
 		}
 		finally
 		{
@@ -90,24 +77,38 @@ public class RecordReader : IDisposable
 		}
 	}
 
-	public Record Read(int position)
+	public Record? Read(int position)
 	{
-		//TODO:Implement
-#warning NotImplemented
-		throw new NotImplementedException();
+		Position = position;
+		return Read();
 	}
 
-	public int ReadId()
+	public int? ReadId()
 	{
-		//TODO:Implement
-#warning NotImplemented
-		throw new NotImplementedException();
+		var buff = ArrayPool<byte>.Shared.Rent(KeySize);
+
+		try
+		{
+			var next = _stream.Position + TotalRecordSize;
+
+			if (_stream.Read(buff, 0, KeySize) != KeySize)
+			{
+				_stream.Position = next - TotalRecordSize;
+				return null;
+			}
+
+			_stream.Position = next;
+			return KeyDecoder.Decode(buff);
+		}
+		finally
+		{
+			ArrayPool<byte>.Shared.Return(buff);
+		}
 	}
 
-	public int ReadId(int position)
+	public int? ReadId(int position)
 	{
-		//TODO:Implement
-#warning NotImplemented
-		throw new NotImplementedException();
+		Position = position;
+		return ReadId();
 	}
 }
