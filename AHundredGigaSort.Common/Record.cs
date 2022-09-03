@@ -11,7 +11,7 @@ public class Record
 	public Record()
 	{
 		Id = 0;
-		Value = new byte[ValueSize];
+		Value = new byte[TotalRecordSize];
 	}
 
 	public Record(ReadOnlySpan<byte> data)
@@ -19,13 +19,11 @@ public class Record
 		Id = KeyDecoder.Decode(data[..KeySize]);
 
 		//Due to performance issue.(local array can skip range check)
-		var array = new byte[ValueSize];
+		var array = new byte[TotalRecordSize];
 
-		var tmp = data[ValueOffset..];
-
-		for (var i = 0; i < ValueSize; i++)
+		for (var i = 0; i < array.Length; i++)
 		{
-			array[i] = tmp[i];
+			array[i] = data[i];
 		}
 
 		Value = array;
@@ -39,9 +37,12 @@ public class Record
 	{
 		Id = KeyDecoder.Decode(data[..KeySize]);
 
-		for (var i = 0; i < ValueSize; i++)
+		//Due to performance issue.(local array can skip range check)
+		var array = Value;
+
+		for (var i = 0; i <array.Length; i++)
 		{
-			Value[i] = data[i + ValueOffset];
+			array[i] = data[i];
 		}
 	}
 }

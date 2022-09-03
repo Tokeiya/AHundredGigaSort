@@ -27,11 +27,11 @@ public class RecordTest
 	{
 		actual.Id.Is(expected.Id);
 
-		actual.Value.Length.Is(ValueSize);
-		expected.Value.Length.Is(ValueSize);
+		actual.Value.Length.Is(TotalRecordSize);
+		expected.Value.Length.Is(TotalRecordSize);
 
 
-		for (var i = 0; i < ValueSize; i++)
+		for (var i = 0; i < expected.Value.Length; i++)
 		{
 			actual.Value[i].Is(expected.Value[i]);
 		}
@@ -65,7 +65,7 @@ public class RecordTest
 	{
 		var actual = new Record();
 		actual.Id.Is(0);
-		actual.Value.Length.Is(ValueSize);
+		actual.Value.Length.Is(TotalRecordSize);
 
 
 		for (int i = 0; i < actual.Value.Length; i++)
