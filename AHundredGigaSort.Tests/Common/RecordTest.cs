@@ -6,6 +6,18 @@ namespace AHundredGigaSort.Tests.Common;
 
 public class RecordTest
 {
+	public static void AreEmpty(Record actual)
+	{
+		actual.Id.Is(-533333328);
+
+		actual.Value.Length.Is(TotalRecordSize);
+
+		foreach (var b in actual.Value)
+		{
+			b.Is((byte)0);
+		}
+
+	}
 	public static void Assert(Record actual, ReadOnlySpan<byte> expected)
 	{
 		var expectedId = 0;

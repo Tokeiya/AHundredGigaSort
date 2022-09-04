@@ -1,28 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AHundredGigaSort.Common;
+﻿namespace AHundredGigaSort.Common;
 
 public class RecordWriter : IDisposable
 {
+	private readonly FileStream _stream;
+
+
 	public RecordWriter(string path)
 	{
-		//TODO:Implement
-#warning NotImplemented
-		throw new NotImplementedException();
-
+		_stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None, Record.TotalRecordSize);
 	}
 
+	public int Position
+	{
+		get => (int)(_stream.Position / Record.TotalRecordSize);
+		set => _stream.Position = value * Record.TotalRecordSize;
+	}
 
+	public void Write(Record record)
+	{
+		_stream.Write(record.Value);
+	}
+
+	public void Write(Record record, int position)
+	{
+		Position = position;
+		Write(record);
+	}
 
 	public void Dispose()
 	{
-		//TODO:Implement
-#warning NotImplemented
-		throw new NotImplementedException();
-
+		_stream.Dispose();
 	}
 }
