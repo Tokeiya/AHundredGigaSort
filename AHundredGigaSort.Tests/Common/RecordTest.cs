@@ -16,8 +16,8 @@ public class RecordTest
 		{
 			b.Is((byte)0);
 		}
-
 	}
+
 	public static void Assert(Record actual, ReadOnlySpan<byte> expected)
 	{
 		var expectedId = 0;
@@ -80,7 +80,7 @@ public class RecordTest
 		actual.Value.Length.Is(TotalRecordSize);
 
 
-		for (int i = 0; i < actual.Value.Length; i++)
+		for (var i = 0; i < actual.Value.Length; i++)
 		{
 			actual.Value[i].Is((byte)0);
 		}

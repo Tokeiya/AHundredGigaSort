@@ -1,7 +1,7 @@
 ﻿using System.Buffers;
 using ChainingAssertion;
-using Record = AHundredGigaSort.Common.Record;
 using static AHundredGigaSort.Common.Record;
+using Record = AHundredGigaSort.Common.Record;
 
 namespace AHundredGigaSort.Tests.Common;
 
@@ -28,11 +28,11 @@ public static class SampleReader
 
 	public static Record Read(int index)
 	{
-		var buff = ArrayPool<byte>.Shared.Rent(Record.TotalRecordSize);
+		var buff = ArrayPool<byte>.Shared.Rent(TotalRecordSize);
 		try
 		{
 			var span = buff[..TotalRecordSize];
-			Fill(index,span);
+			Fill(index, span);
 			return new Record(span);
 		}
 		finally
@@ -41,7 +41,7 @@ public static class SampleReader
 		}
 	}
 
-	public static void Fill(int index,Span<byte> buffer)
+	public static void Fill(int index, Span<byte> buffer)
 	{
 		Stream.Position = index * TotalRecordSize;
 		Stream.Read(buffer);

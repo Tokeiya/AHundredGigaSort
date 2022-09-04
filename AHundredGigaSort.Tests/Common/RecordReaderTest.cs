@@ -8,19 +8,19 @@ namespace AHundredGigaSort.Tests.Common;
 
 public class RecordReaderTest
 {
+	public RecordReaderTest()
+	{
+		Read(0);
+	}
+
 	private static void Assert(ReadOnlySpan<byte> actual, ReadOnlySpan<byte> expected)
 	{
 		actual.Length.Is(expected.Length);
 
-		for (int i = 0; i < actual.Length; i++)
+		for (var i = 0; i < actual.Length; i++)
 		{
 			actual[i].Is(expected[i]);
 		}
-	}
-
-	public RecordReaderTest()
-	{
-		Read(0);
 	}
 
 	[Fact]
@@ -40,7 +40,7 @@ public class RecordReaderTest
 		using var target = new RecordReader(SampleDataPath);
 
 
-		for (int i = 0; i < 100; i++)
+		for (var i = 0; i < 100; i++)
 		{
 			target.Fill(actual).IsTrue();
 			Fill(i, expected);
@@ -59,7 +59,7 @@ public class RecordReaderTest
 
 		using var target = new RecordReader(SampleDataPath);
 
-		for (int i = 99; i >= 0; i--)
+		for (var i = 99; i >= 0; i--)
 		{
 			target.Fill(i, actual).IsTrue();
 			Fill(i, expected);
@@ -75,7 +75,7 @@ public class RecordReaderTest
 
 		using var target = new RecordReader(SampleDataPath);
 
-		for (int i = 0; i < 100; i++)
+		for (var i = 0; i < 100; i++)
 		{
 			var ret = target.Fill(record);
 
@@ -95,7 +95,7 @@ public class RecordReaderTest
 
 		using var target = new RecordReader(SampleDataPath);
 
-		for (int i = 99; i >= 0; i--)
+		for (var i = 99; i >= 0; i--)
 		{
 			target.Fill(i, record);
 			RecordTest.Assert(record, Read(i));
@@ -108,7 +108,7 @@ public class RecordReaderTest
 	{
 		using var target = new RecordReader(SampleDataPath);
 
-		for (int i = 0; i < 100; i++)
+		for (var i = 0; i < 100; i++)
 		{
 			RecordTest.Assert(target.Read()!, Read(i));
 		}
@@ -121,7 +121,7 @@ public class RecordReaderTest
 	{
 		using var target = new RecordReader(SampleDataPath);
 
-		for (int i = 99; i >= 0; i--)
+		for (var i = 99; i >= 0; i--)
 		{
 			RecordTest.Assert(target.Read(i)!, Read(i));
 		}
@@ -134,7 +134,7 @@ public class RecordReaderTest
 	{
 		using var target = new RecordReader(SampleDataPath);
 
-		for (int i = 0; i < 100; i++)
+		for (var i = 0; i < 100; i++)
 		{
 			target.Position.Is(i);
 			target.Read().IsNotNull();
@@ -155,38 +155,31 @@ public class RecordReaderTest
 	{
 		using var target = new RecordReader(SampleDataPath);
 		target.Dispose();
-	
+
 
 		Xunit.Assert.Throws<ObjectDisposedException>(() => target.Read());
 	}
-	
+
 	[Fact]
 	public void SequentialReadIdTest()
 	{
-		using var target=new RecordReader(SampleDataPath);
+		using var target = new RecordReader(SampleDataPath);
 
-		for (int i = 0; i < 100; i++)
+		for (var i = 0; i < 100; i++)
 		{
 			target.ReadId().Is(Read(i).Id);
 		}
 
 		target.ReadId().IsNull();
-
 	}
 
 	[Fact]
 	public void PositionReadIdTest()
 	{
 		using var target = new RecordReader(SampleDataPath);
-		
+
 		target.ReadId(42).Is(Read(42).Id);
-		
+
 		target.ReadId(100).IsNull();
-		
 	}
-
-
-
-
-
 }

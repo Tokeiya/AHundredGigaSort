@@ -16,6 +16,11 @@ public class RecordWriter : IDisposable
 		set => _stream.Position = value * Record.TotalRecordSize;
 	}
 
+	public void Dispose()
+	{
+		_stream.Dispose();
+	}
+
 	public void Write(Record record)
 	{
 		_stream.Write(record.Value);
@@ -25,10 +30,5 @@ public class RecordWriter : IDisposable
 	{
 		Position = position;
 		Write(record);
-	}
-
-	public void Dispose()
-	{
-		_stream.Dispose();
 	}
 }

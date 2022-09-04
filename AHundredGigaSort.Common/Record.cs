@@ -40,7 +40,7 @@ public class Record
 		//Due to performance issue.(local array can skip range check)
 		var array = Value;
 
-		for (var i = 0; i <array.Length; i++)
+		for (var i = 0; i < array.Length; i++)
 		{
 			array[i] = data[i];
 		}

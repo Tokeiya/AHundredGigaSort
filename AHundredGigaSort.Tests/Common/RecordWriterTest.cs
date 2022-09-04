@@ -15,7 +15,16 @@ public class RecordWriterTest : IDisposable
 		_testOutputHelper = testOutputHelper;
 	}
 
-	static string GetPath()
+	public void Dispose()
+	{
+		foreach (var info in Directory.EnumerateFiles("./Output").Select(x => new FileInfo(x)))
+		{
+			if (info.Extension == ".dummy") continue;
+			info.Delete();
+		}
+	}
+
+	private static string GetPath()
 	{
 		return $".\\Output\\{DateTime.Now.Ticks}.txt";
 	}
@@ -56,13 +65,12 @@ public class RecordWriterTest : IDisposable
 
 		RecordTest.Assert(reader.Read(0)!, SampleReader.Read(0));
 
-		for (int i = 1; i < 42; i++)
+		for (var i = 1; i < 42; i++)
 		{
-			RecordTest.AreEmpty(reader.Read(i)!);	
+			RecordTest.AreEmpty(reader.Read(i)!);
 		}
 
-		RecordTest.Assert(reader.Read(42)!,SampleReader.Read(1));
-
+		RecordTest.Assert(reader.Read(42)!, SampleReader.Read(1));
 	}
 
 	[Fact]
@@ -73,7 +81,7 @@ public class RecordWriterTest : IDisposable
 		// ReSharper disable once ConvertToUsingDeclaration
 		using (var writer = new RecordWriter(path))
 		{
-			for (int i = 0; i < 20; i++)
+			for (var i = 0; i < 20; i++)
 			{
 				writer.Write(SampleReader.Read(i));
 			}
@@ -85,12 +93,10 @@ public class RecordWriterTest : IDisposable
 		using var reader = new RecordReader(path);
 		reader.RecordSize.Is(20);
 
-		for (int i = 0; i < 20; i++)
+		for (var i = 0; i < 20; i++)
 		{
-			RecordTest.Assert(reader.Read()!,SampleReader.Read(i));
+			RecordTest.Assert(reader.Read()!, SampleReader.Read(i));
 		}
-		
-
 	}
 
 
@@ -101,18 +107,19 @@ public class RecordWriterTest : IDisposable
 
 		using (var writer = new RecordWriter(path))
 		{
-			for (int i = 0; i < 20; i++)
+			for (var i = 0; i < 20; i++)
 			{
-				writer.Write(SampleReader.Read(i),i*2);
+				writer.Write(SampleReader.Read(i), i * 2);
 			}
-			var pos=writer.Position;
+
+			var pos = writer.Position;
 			pos.Is(39);
 		}
 
 		using var reader = new RecordReader(path);
 		reader.RecordSize.Is(39);
 
-		for (int i = 0; i < 39; i++)
+		for (var i = 0; i < 39; i++)
 		{
 			if ((i & 1) == 0) RecordTest.Assert(reader.Read(i)!, SampleReader.Read(i / 2));
 			else RecordTest.AreEmpty(reader.Read(i)!);
@@ -130,15 +137,5 @@ public class RecordWriterTest : IDisposable
 		writer.Dispose();
 
 		Assert.Throws<ObjectDisposedException>(() => writer.Write(SampleReader.Read(1)));
-	}
-
-	public void Dispose()
-	{
-
-		foreach (var info in Directory.EnumerateFiles("./Output").Select(x => new FileInfo(x)))
-		{
-			if (info.Extension == ".dummy") continue;
-			info.Delete();
-		}
 	}
 }
