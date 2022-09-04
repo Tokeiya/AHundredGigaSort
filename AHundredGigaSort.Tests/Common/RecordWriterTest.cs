@@ -19,7 +19,6 @@ public class RecordWriterTest : IDisposable
 	{
 		foreach (var info in Directory.EnumerateFiles("./Output").Select(x => new FileInfo(x)))
 		{
-			if (info.Extension == ".dummy") continue;
 			info.Delete();
 		}
 	}
