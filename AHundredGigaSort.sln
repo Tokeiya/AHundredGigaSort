@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AHundredGigaSort.Common", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Playground", "Playground\Playground.csproj", "{47A1A17A-66FB-4DD6-A5E3-646A0CCD1466}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AHundredGigaSort.Tests", "AHundredGigaSort.Tests\AHundredGigaSort.Tests.csproj", "{4B816D8C-8319-4FB1-A898-1FA071170970}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AHundredGigaSort.Tests", "AHundredGigaSort.Tests\AHundredGigaSort.Tests.csproj", "{4B816D8C-8319-4FB1-A898-1FA071170970}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchMark", "BenchMark\BenchMark.csproj", "{A75D19BA-CFD5-4DA1-B220-BE3FF5733EAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4B816D8C-8319-4FB1-A898-1FA071170970}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B816D8C-8319-4FB1-A898-1FA071170970}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B816D8C-8319-4FB1-A898-1FA071170970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A75D19BA-CFD5-4DA1-B220-BE3FF5733EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A75D19BA-CFD5-4DA1-B220-BE3FF5733EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A75D19BA-CFD5-4DA1-B220-BE3FF5733EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A75D19BA-CFD5-4DA1-B220-BE3FF5733EAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

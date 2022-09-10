@@ -2,6 +2,7 @@
 
 public class RecordWriter : IDisposable
 {
+	public const long Size = 3010;
 	private readonly FileStream _stream;
 
 
@@ -13,7 +14,7 @@ public class RecordWriter : IDisposable
 	public int Position
 	{
 		get => (int)(_stream.Position / Record.TotalRecordSize);
-		set => _stream.Position = value * Record.TotalRecordSize;
+		set => _stream.Position = value * Size;
 	}
 
 	public void Dispose()

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="black">
+        <serverdata>
+          <mappings>
+            <mapping local="C:/Program Files/dotnet/sdk/6.0.400/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="C:/Program Files/dotnet/sdk/6.0.400/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="C:/Program Files/dotnet/sdk/6.0.400/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="C:/Program Files/dotnet/sdk/6.0.400/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="C:/Program Files/dotnet/sdk/6.0.400/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/amd64/KernelTraceControl.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/amd64/msdia140.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/amd64/msvcp140.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/amd64/vcruntime140.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/amd64/vcruntime140_1.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/arm64/KernelTraceControl.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/arm64/msdia140.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/arm64/msvcp140.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/arm64/vcruntime140.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/arm64/vcruntime140_1.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/x86/KernelTraceControl.Win61.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/x86/KernelTraceControl.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/x86/msdia140.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/x86/msvcp140.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/build/native/x86/vcruntime140.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/lib/netstandard1.6/Dia2Lib.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/lib/netstandard1.6/OSExtensions.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.diagnostics.tracing.traceevent/3.0.2/lib/netstandard1.6/TraceReloggerLib.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.3.1/build/netcoreapp2.1/Microsoft.NET.Test.Sdk.Program.cs" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.1/build/netcoreapp2.1/x64/testhost.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.1/build/netcoreapp2.1/x64/testhost.exe" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.reporters.netcoreapp10.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.utility.netcoreapp10.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/AHundredGigaSort.Common.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/KeyDecoder.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/LogWriter.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/Logging/ElapsedLogger.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/MergeSort/BlockSorter.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/MergeSort/DriveSelector.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/Properties/PublishProfiles/FolderProfile.pubxml" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/Record.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/RecordReader.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/RecordWriter.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/obj/Debug/net6.0/AHundredGigaSort.Common.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/obj/Debug/net6.0/AHundredGigaSort.Common.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Common/obj/Debug/net6.0/AHundredGigaSort.Common.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.DataGenerator/AHundredGigaSort.DataGenerator.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.DataGenerator/Generator.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.DataGenerator/Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.DataGenerator/obj/Debug/net6.0/AHundredGigaSort.DataGenerator.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.DataGenerator/obj/Debug/net6.0/AHundredGigaSort.DataGenerator.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.DataGenerator/obj/Debug/net6.0/AHundredGigaSort.DataGenerator.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/AHundredGigaSort.Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/Common/KeyDecoderTest.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/Common/RecordReaderTest.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/Common/RecordTest.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/Common/RecordWriterTest.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/Common/SampleReader.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/Output/.gitkeep" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/SampleData/100_sample.txt" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/Usings.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/obj/Debug/net6.0/AHundredGigaSort.Tests.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/obj/Debug/net6.0/AHundredGigaSort.Tests.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.Tests/obj/Debug/net6.0/AHundredGigaSort.Tests.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/AHundredGigaSort.sln" web="/" />
+            <mapping local="$PROJECT_DIR$/BenchMark/BenchMark.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/BenchMark/Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/BenchMark/Properties/PublishProfiles/FolderProfile.pubxml" web="/" />
+            <mapping local="$PROJECT_DIR$/BenchMark/obj/Debug/net6.0/BenchMark.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/BenchMark/obj/Debug/net6.0/BenchMark.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/BenchMark/obj/Debug/net6.0/BenchMark.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Playground/BufferWriter.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Playground/BulkInsert.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Playground/Playground.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/Playground/Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Playground/Properties/PublishProfiles/FolderProfile.pubxml" web="/" />
+            <mapping local="$PROJECT_DIR$/Playground/obj/Debug/net6.0/Playground.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Playground/obj/Debug/net6.0/Playground.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/Playground/obj/Debug/net6.0/Playground.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

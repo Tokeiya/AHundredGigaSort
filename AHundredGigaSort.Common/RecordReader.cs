@@ -1,15 +1,19 @@
-﻿using System.Buffers;
+﻿using System;
+using System.Buffers;
+using System.IO;
 using static AHundredGigaSort.Common.Record;
 
 namespace AHundredGigaSort.Common;
 
 public class RecordReader : IDisposable
 {
+	public const long Size = 3010;
+
 	private readonly FileStream _stream;
 
 	public RecordReader(string path)
 	{
-		_stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read, TotalRecordSize);
+		_stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, TotalRecordSize);
 		RecordSize = (int)(_stream.Length / TotalRecordSize);
 	}
 
@@ -17,8 +21,8 @@ public class RecordReader : IDisposable
 
 	public int Position
 	{
-		set => _stream.Position = value * TotalRecordSize;
-		get => (int)(_stream.Position / TotalRecordSize);
+		set => _stream.Position = value * Size;
+		get => (int)(_stream.Position / Size);
 	}
 
 	public void Dispose()
